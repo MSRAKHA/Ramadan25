@@ -485,32 +485,32 @@ def main():
         # Method 2: Using Local Video Files
         st.markdown("<h3 style='color: #088856;'>Educational Content</h3>", unsafe_allow_html=True)
         with st.expander("Video 1"):
-            # List of video filenames
-            video_files = [
-                'WhatsApp_Video_2025-03-01_at_01.41.11.mp4',
-                'WhatsApp_Video_2025-03-01_at_01.40.46.mp4',
-                'WhatsApp_Video_2025-02-28_at_01.37.52.mp4',
-                'WhatsApp_Video_2025-02-25_at_10.20.22.mp4',
-                'WhatsApp_Video_2025-02-21_at_03.38.46.mp4',
-                'WhatsApp_Video_2025-02-19_at_22.16.17.mp4'
-            ]
+            # Get all MP4 files in the current directory
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            video_files = [f for f in os.listdir(current_dir) if f.endswith('.mp4')]
 
-            # Create columns
-            cols = st.columns(3)  # Changed to 3 columns for better visibility
+            if not video_files:
+                st.warning("No video files (.mp4) found in the current directory. Please ensure your videos are in the same folder as this script.")
+                st.info("Expected location: " + current_dir)
+            else:
+                # Create columns
+                cols = st.columns(3)  # Changed to 3 columns for better visibility
 
-            # Display videos with error handling
-            for idx, video_name in enumerate(video_files):
-                try:
-                    with cols[idx % 3]:  # Use modulo to cycle through columns
-                        if os.path.exists(video_name):
-                            video_file = open(video_name, 'rb')
-                            video_bytes = video_file.read()
-                            st.video(video_bytes)
-                            video_file.close()
-                        else:
-                            st.error(f"Video file not found: {video_name}")
-                except Exception as e:
-                    st.error(f"Error loading video {video_name}: {str(e)}")
+                # Display videos with error handling
+                for idx, video_name in enumerate(video_files):
+                    try:
+                        with cols[idx % 3]:  # Use modulo to cycle through columns
+                            video_path = os.path.join(current_dir, video_name)
+                            if os.path.exists(video_path):
+                                st.write(f"Loading video: {video_name}")
+                                video_file = open(video_path, 'rb')
+                                video_bytes = video_file.read()
+                                st.video(video_bytes)
+                                video_file.close()
+                            else:
+                                st.error(f"Video file not found: {video_name}")
+                    except Exception as e:
+                        st.error(f"Error loading video {video_name}: {str(e)}")
 
         # Sections with Duas
         st.markdown("<h2 class='section-header'>When In Anger</h2>", unsafe_allow_html=True)
