@@ -483,17 +483,14 @@ def main():
         # Method 2: Using Local Video Files
         st.markdown("<h3 style='color: #088856;'>Educational Content</h3>", unsafe_allow_html=True)
         with st.expander("Video 1"):
-            # Define video directory
-            VIDEO_DIR = './videos'
-
-            # List of video filenames
+            # List of video filenames (directly in root, no need for directory)
             video_files = [
-                'WhatsApp Video 2025-03-01 at 01.41.11.mp4',
-                'WhatsApp Video 2025-03-01 at 01.40.46.mp4',
-                'WhatsApp Video 2025-02-28 at 01.37.52.mp4',
-                'WhatsApp Video 2025-02-25 at 10.20.22.mp4',
-                'WhatsApp Video 2025-02-21 at 03.38.46.mp4',
-                'WhatsApp Video 2025-02-19 at 22.16.17.mp4'
+                'WhatsApp_Video_2025-03-01_at_01.41.11.mp4',
+                'WhatsApp_Video_2025-03-01_at_01.40.46.mp4',
+                'WhatsApp_Video_2025-02-28_at_01.37.52.mp4',
+                'WhatsApp_Video_2025-02-25_at_10.20.22.mp4',
+                'WhatsApp_Video_2025-02-21_at_03.38.46.mp4',
+                'WhatsApp_Video_2025-02-19_at_22.16.17.mp4'
             ]
 
             # Create columns
@@ -502,9 +499,8 @@ def main():
             # Display videos
             for idx, (col, video_name) in enumerate(zip(cols, video_files)):
                 with col:
-                    video_path = os.path.join(VIDEO_DIR, video_name)
                     try:
-                        video_file = open(video_path, 'rb')
+                        video_file = open(video_name, 'rb')  # Removed os.path.join since files are in root
                         video_bytes = video_file.read()
                         st.video(video_bytes)
                     except FileNotFoundError:
