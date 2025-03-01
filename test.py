@@ -130,8 +130,7 @@ def main():
     
     st.info("بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ (Bismillah-ir-Rahman-ir-Raheem), meaning 'In the name of Allah, the Most Gracious, the Most Merciful.'")
     st.info("https://www.youtube.com/@msr-islam")
-    today = datetime.datetime.now()
-    st.info(f"Today's Date: {today.strftime('%Y-%m-%d')}")
+    
     st.markdown("<h3 style='color: #088856;'>Ramadan Schedule</h3>", unsafe_allow_html=True)
 
     st.info("Ramadan 2025 will begin on the evening of March 1st and end on March 31st or April 1st depending on the sighting of the moon.")
@@ -957,7 +956,7 @@ def main():
             <div class="footer">
                 Made with ❤️ for the Muslim Ummah<br>
                 <small>May Allah accept our prayers & Grant us Jannah - Ameen</small>
-                    <small>Remember me in your duas for getting success here and hereafter - MS Rakha</small>
+                    <small>Remember me in your duas 🤲 for getting success here and hereafter - MS Rakha 💚 </small>
             </div>
         """, unsafe_allow_html=True)
 
