@@ -1,3 +1,5 @@
+#GUTHUB CODE 
+
 import streamlit as st
 import pandas as pd
 import datetime
@@ -485,12 +487,12 @@ def main():
         with st.expander("Video 1"):
             # List of video filenames (directly in root, no need for directory)
             video_files = [
-                'WhatsApp_Video_2025-03-01_at_01.41.11.mp4',
-                'WhatsApp_Video_2025-03-01_at_01.40.46.mp4',
-                'WhatsApp_Video_2025-02-28_at_01.37.52.mp4',
-                'WhatsApp_Video_2025-02-25_at_10.20.22.mp4',
-                'WhatsApp_Video_2025-02-21_at_03.38.46.mp4',
-                'WhatsApp_Video_2025-02-19_at_22.16.17.mp4'
+                './WhatsApp_Video_2025-03-01_at_01.41.11.mp4',
+                './WhatsApp_Video_2025-03-01_at_01.40.46.mp4',
+                './WhatsApp_Video_2025-02-28_at_01.37.52.mp4',
+                './WhatsApp_Video_2025-02-25_at_10.20.22.mp4',
+                './WhatsApp_Video_2025-02-21_at_03.38.46.mp4',
+                './WhatsApp_Video_2025-02-19_at_22.16.17.mp4'
             ]
 
             # Create columns
@@ -959,8 +961,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
