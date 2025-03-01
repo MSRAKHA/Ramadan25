@@ -485,7 +485,7 @@ def main():
         # Method 2: Using Local Video Files
         st.markdown("<h3 style='color: #088856;'>Educational Content</h3>", unsafe_allow_html=True)
         with st.expander("Video 1"):
-            # List of video filenames (directly in root, no need for directory)
+            # List of video filenames
             video_files = [
                 'WhatsApp_Video_2025-03-01_at_01.41.11.mp4',
                 'WhatsApp_Video_2025-03-01_at_01.40.46.mp4',
@@ -496,20 +496,22 @@ def main():
             ]
 
             # Create columns
-            cols = st.columns(6)
+            cols = st.columns(3)  # Changed to 3 columns for better visibility
 
-            # Display videos
-            for idx, (col, video_name) in enumerate(zip(cols, video_files)):
-                with col:
-                    try:
-                        video_file = open(video_name, 'rb')  # Removed os.path.join since files are in root
-                        video_bytes = video_file.read()
-                        st.video(video_bytes)
-                    except FileNotFoundError:
-                        st.error(f"Video {idx+1} not found")
-                    finally:
-                        if 'video_file' in locals():
+            # Display videos with error handling
+            for idx, video_name in enumerate(video_files):
+                try:
+                    with cols[idx % 3]:  # Use modulo to cycle through columns
+                        if os.path.exists(video_name):
+                            video_file = open(video_name, 'rb')
+                            video_bytes = video_file.read()
+                            st.video(video_bytes)
                             video_file.close()
+                        else:
+                            st.error(f"Video file not found: {video_name}")
+                except Exception as e:
+                    st.error(f"Error loading video {video_name}: {str(e)}")
+
         # Sections with Duas
         st.markdown("<h2 class='section-header'>When In Anger</h2>", unsafe_allow_html=True)
         display_dua(
