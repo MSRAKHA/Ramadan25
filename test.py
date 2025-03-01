@@ -134,7 +134,7 @@ def main():
     st.info(f"Today's Date: {today.strftime('%Y-%m-%d')}")
     st.markdown("<h3 style='color: #088856;'>Ramadan Schedule</h3>", unsafe_allow_html=True)
 
-    st.info("Ramadan 2025 will begin on the evening of March 2nd and end on March 31st or April 1st depending on the sighting of the moon.")
+    st.info("Ramadan 2025 will begin on the evening of March 1st and end on March 31st or April 1st depending on the sighting of the moon.")
     st.subheader("Search for a Dua")
    
     search_query = st.text_input("Search Duas", placeholder="Type to search duas...", label_visibility="collapsed")
