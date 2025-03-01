@@ -472,14 +472,14 @@ def main():
                 margin: 0 auto;
             }
             
-            .stVideo > div > iframe {
+            .st > div > iframe {
                 width: 100%;
                 height: 100%;
             }
             </style>
         """, unsafe_allow_html=True)
 
-        # Video Sectionhttps://github.com/login/device
+        #  Sectionhttps://github.com/login/device
         st.markdown("<h2 class='section-header'>Islamic Educational Videos</h2>", unsafe_allow_html=True)
         
         # Method 2: Using Local Video Files
@@ -487,12 +487,12 @@ def main():
         with st.expander("Video 1"):
             # List of video filenames (directly in root, no need for directory)
             video_files = [
-                './WhatsApp_Video_2025-03-01_at_01.41.11.mp4',
-                './WhatsApp_Video_2025-03-01_at_01.40.46.mp4',
-                './WhatsApp_Video_2025-02-28_at_01.37.52.mp4',
-                './WhatsApp_Video_2025-02-25_at_10.20.22.mp4',
-                './WhatsApp_Video_2025-02-21_at_03.38.46.mp4',
-                './WhatsApp_Video_2025-02-19_at_22.16.17.mp4'
+                'WhatsApp_Video_2025-03-01_at_01.41.11.mp4',
+                'WhatsApp_Video_2025-03-01_at_01.40.46.mp4',
+                'WhatsApp_Video_2025-02-28_at_01.37.52.mp4',
+                'WhatsApp_Video_2025-02-25_at_10.20.22.mp4',
+                'WhatsApp_Video_2025-02-21_at_03.38.46.mp4',
+                'WhatsApp_Video_2025-02-19_at_22.16.17.mp4'
             ]
 
             # Create columns
