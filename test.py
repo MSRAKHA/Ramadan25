@@ -12,8 +12,7 @@ st.set_page_config(
         layout="wide"
     )
 def main():
-    st.balloons()
-    time.sleep(1)
+    
     st.snow()
     # Function to display a dua card - moved to top of main()
     def display_dua(title, arabic, transliteration, translation, source=""):
