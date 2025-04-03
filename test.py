@@ -1,9 +1,10 @@
-#GUTHUB CODE 
+#GITHUB CODE 
 
 import streamlit as st
 import pandas as pd
 import datetime
 import os
+
 
     # Page Configuration
 st.set_page_config(
@@ -141,7 +142,7 @@ def main():
         
         # Method 2: Using Local Video Files
     st.markdown("<h3 style='color: #088856;'>Educational Content</h3>", unsafe_allow_html=True)
-    with st.expander("Video 1"):
+    with st.expander(" Trending Islamic Videos"):
         # Get all MP4 files in the current directory
             current_dir = os.path.dirname(os.path.abspath(__file__))
             video_files = [f for f in os.listdir(current_dir) if f.endswith('.mp4')]
