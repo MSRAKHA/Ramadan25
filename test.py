@@ -853,7 +853,7 @@ def main():
             """, unsafe_allow_html=True)
 
             # Create columns for audio files
-            audio_col1, audio_col2 = st.columns(2)
+            audio_col1 = st.columns(1)
 
             with audio_col1:
                 st.markdown("""
@@ -864,11 +864,11 @@ def main():
                 
                 # Add your Arabic audio file
                 try:
-                    audio_file_arabic = open('.99_names_arabic.mp3', 'rb')
+                    audio_file_arabic = open('99_names_arabic.mp3', 'rb')
                     audio_bytes = audio_file_arabic.read()
                     st.audio(audio_bytes, format='audio/mp3')
                 except FileNotFoundError:
-                    st.warning("Arabic audio file not found. Please add '99_names_arabic.mp3' to the audio folder.")
+                    st.warning("Arabic audio file not found. Please add '99_names_arabic.mp3' to the folder.")
 
 
             # Create a DataFrame for the 99 names
