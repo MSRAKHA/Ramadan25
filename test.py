@@ -141,8 +141,8 @@ def main():
         
         # Method 2: Using Local Video Files
     st.markdown("<h3 style='color: #088856;'>Educational Content</h3>", unsafe_allow_html=True)
-        with st.expander("Video 1"):
-            # Get all MP4 files in the current directory
+    with st.expander("Video 1"):
+        # Get all MP4 files in the current directory
             current_dir = os.path.dirname(os.path.abspath(__file__))
             video_files = [f for f in os.listdir(current_dir) if f.endswith('.mp4')]
 
@@ -168,6 +168,7 @@ def main():
                                 st.error(f"Video file not found: {video_name}")
                     except Exception as e:
                         st.error(f"Error loading video {video_name}: {str(e)}")
+            
     st.subheader("Search for a Dua")
    
     search_query = st.text_input("Search Duas", placeholder="Type to search duas...", label_visibility="collapsed")
