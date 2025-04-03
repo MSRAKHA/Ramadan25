@@ -134,9 +134,9 @@ def main():
     st.info("بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ (Bismillah-ir-Rahman-ir-Raheem), meaning 'In the name of Allah, the Most Gracious, the Most Merciful.'")
     st.info("https://www.youtube.com/@msr-islam")
     
-    st.markdown("<h3 style='color: #088856;'>Ramadan Schedule</h3>", unsafe_allow_html=True)
+    # st.markdown("<h3 style='color: #088856;'>Ramadan Schedule</h3>", unsafe_allow_html=True)
 
-    st.info("Ramadan 2025 will begin on the evening of March 1st and end on March 31st or April 1st depending on the sighting of the moon.")
+    # st.info("Ramadan 2025 will begin on the evening of March 1st and end on March 31st or April 1st depending on the sighting of the moon.")
     #  Sectionhttps://github.com/login/device
     st.markdown("<h2 class='section-header'>Islamic Educational Videos</h2>", unsafe_allow_html=True)
         
@@ -847,6 +847,29 @@ def main():
             > "There are ninety-nine names of Allah; he who commits them to memory will enter Paradise. Verily, Allah is Odd (He is one, and it is an odd number), and He loves odd numbers."
             (Sahih Muslim Book 48 Hadith 5)
             """)
+              # Add Audio Section before the names table
+            st.markdown("""
+            <h3 style='color: #088856; text-align: center; margin: 20px 0;'>Listen to the 99 Names of Allah</h3>
+            """, unsafe_allow_html=True)
+
+            # Create columns for audio files
+            audio_col1, audio_col2 = st.columns(2)
+
+            with audio_col1:
+                st.markdown("""
+                <div style='background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin: 10px 0;'>
+                    <h4 style='color: #088856; text-align: center;'>Arabic Recitation</h4>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                # Add your Arabic audio file
+                try:
+                    audio_file_arabic = open('.99_names_arabic.mp3', 'rb')
+                    audio_bytes = audio_file_arabic.read()
+                    st.audio(audio_bytes, format='audio/mp3')
+                except FileNotFoundError:
+                    st.warning("Arabic audio file not found. Please add '99_names_arabic.mp3' to the audio folder.")
+
 
             # Create a DataFrame for the 99 names
             names_data = {
