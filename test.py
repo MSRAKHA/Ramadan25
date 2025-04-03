@@ -136,6 +136,38 @@ def main():
     st.markdown("<h3 style='color: #088856;'>Ramadan Schedule</h3>", unsafe_allow_html=True)
 
     st.info("Ramadan 2025 will begin on the evening of March 1st and end on March 31st or April 1st depending on the sighting of the moon.")
+    #  Sectionhttps://github.com/login/device
+        st.markdown("<h2 class='section-header'>Islamic Educational Videos</h2>", unsafe_allow_html=True)
+        
+        # Method 2: Using Local Video Files
+        st.markdown("<h3 style='color: #088856;'>Educational Content</h3>", unsafe_allow_html=True)
+        with st.expander("Video 1"):
+            # Get all MP4 files in the current directory
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            video_files = [f for f in os.listdir(current_dir) if f.endswith('.mp4')]
+
+            if not video_files:
+                st.warning("No video files (.mp4) found in the current directory. Please ensure your videos are in the same folder as this script.")
+                st.info("Expected location: " + current_dir)
+            else:
+                # Create columns
+                cols = st.columns(3)  # Changed to 3 columns for better visibility
+
+                # Display videos with error handling
+                for idx, video_name in enumerate(video_files):
+                    try:
+                        with cols[idx % 3]:  # Use modulo to cycle through columns
+                            video_path = os.path.join(current_dir, video_name)
+                            if os.path.exists(video_path):
+                                st.write(f"Loading video: {video_name}")
+                                video_file = open(video_path, 'rb')
+                                video_bytes = video_file.read()
+                                st.video(video_bytes)
+                                video_file.close()
+                            else:
+                                st.error(f"Video file not found: {video_name}")
+                    except Exception as e:
+                        st.error(f"Error loading video {video_name}: {str(e)}")
     st.subheader("Search for a Dua")
    
     search_query = st.text_input("Search Duas", placeholder="Type to search duas...", label_visibility="collapsed")
@@ -480,38 +512,7 @@ def main():
             </style>
         """, unsafe_allow_html=True)
 
-        #  Sectionhttps://github.com/login/device
-        st.markdown("<h2 class='section-header'>Islamic Educational Videos</h2>", unsafe_allow_html=True)
         
-        # Method 2: Using Local Video Files
-        st.markdown("<h3 style='color: #088856;'>Educational Content</h3>", unsafe_allow_html=True)
-        with st.expander("Video 1"):
-            # Get all MP4 files in the current directory
-            current_dir = os.path.dirname(os.path.abspath(__file__))
-            video_files = [f for f in os.listdir(current_dir) if f.endswith('.mp4')]
-
-            if not video_files:
-                st.warning("No video files (.mp4) found in the current directory. Please ensure your videos are in the same folder as this script.")
-                st.info("Expected location: " + current_dir)
-            else:
-                # Create columns
-                cols = st.columns(3)  # Changed to 3 columns for better visibility
-
-                # Display videos with error handling
-                for idx, video_name in enumerate(video_files):
-                    try:
-                        with cols[idx % 3]:  # Use modulo to cycle through columns
-                            video_path = os.path.join(current_dir, video_name)
-                            if os.path.exists(video_path):
-                                st.write(f"Loading video: {video_name}")
-                                video_file = open(video_path, 'rb')
-                                video_bytes = video_file.read()
-                                st.video(video_bytes)
-                                video_file.close()
-                            else:
-                                st.error(f"Video file not found: {video_name}")
-                    except Exception as e:
-                        st.error(f"Error loading video {video_name}: {str(e)}")
 
         # Sections with Duas
         st.markdown("<h2 class='section-header'>When In Anger</h2>", unsafe_allow_html=True)
