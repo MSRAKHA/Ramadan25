@@ -140,7 +140,7 @@ def main():
     st.markdown("<h2 class='section-header'>Islamic Educational Videos</h2>", unsafe_allow_html=True)
         
         # Method 2: Using Local Video Files
-        st.markdown("<h3 style='color: #088856;'>Educational Content</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color: #088856;'>Educational Content</h3>", unsafe_allow_html=True)
         with st.expander("Video 1"):
             # Get all MP4 files in the current directory
             current_dir = os.path.dirname(os.path.abspath(__file__))
