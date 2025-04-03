@@ -137,7 +137,7 @@ def main():
 
     st.info("Ramadan 2025 will begin on the evening of March 1st and end on March 31st or April 1st depending on the sighting of the moon.")
     #  Sectionhttps://github.com/login/device
-        st.markdown("<h2 class='section-header'>Islamic Educational Videos</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 class='section-header'>Islamic Educational Videos</h2>", unsafe_allow_html=True)
         
         # Method 2: Using Local Video Files
         st.markdown("<h3 style='color: #088856;'>Educational Content</h3>", unsafe_allow_html=True)
