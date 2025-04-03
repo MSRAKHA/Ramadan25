@@ -852,9 +852,10 @@ def main():
             <h3 style='color: #088856; text-align: center; margin: 20px 0;'>Listen to the 99 Names of Allah</h3>
             """, unsafe_allow_html=True)
 
-            # Create columns for audio files
-            audio_col1 = st.columns(1)
 
+            # Create columns for audio files
+            audio_col1, audio_col2 = st.columns(2)
+            
             with audio_col1:
                 st.markdown("""
                 <div style='background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin: 10px 0;'>
@@ -862,13 +863,19 @@ def main():
                 </div>
                 """, unsafe_allow_html=True)
                 
-                # Add your Arabic audio file
+                # Add your Arabic audio file from GitHub
                 try:
-                    audio_file_arabic = open('99_names_arabic.mp3', 'rb')
-                    audio_bytes = audio_file_arabic.read()
-                    st.audio(audio_bytes, format='audio/mp3')
-                except FileNotFoundError:
-                    st.warning("Arabic audio file not found. Please add '99_names_arabic.mp3' to the folder.")
+                    # Replace this URL with your GitHub raw file URL
+                    github_audio_url = "https://raw.githubusercontent.com/MSRAKHA/Ramadan25/main/99_names_arabic.mp3"
+                    
+                    response = requests.get(github_audio_url)
+                    if response.status_code == 200:
+                        audio_bytes = response.content
+                        st.audio(audio_bytes, format='audio/mp3')
+                    else:
+                        st.warning("Failed to fetch audio file from GitHub")
+                except Exception as e:
+                    st.warning(f"Error loading audio file: {str(e)}")
 
 
             # Create a DataFrame for the 99 names
